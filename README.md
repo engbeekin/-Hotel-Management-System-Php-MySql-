@@ -8,7 +8,7 @@ data
 - Also this Project has Authentication &
 Authorized
 
-# The Services 
+# Services 
 
 - Manager Can Add customer
 - Manager Can Add staff
