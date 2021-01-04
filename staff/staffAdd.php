@@ -1,41 +1,26 @@
 <?php
- require('conn.php');
- require('header.php');
+ require('../conn.php');
+ require('../header.php');
 
- // get the custemer id
-     $id=$_GET['id']?? null;
-    // select customer from table to input
-    $hotel=$db->prepare('select * from staff where id=:id');
-    $hotel->bindParam(':id',$id);
-    $hotel->execute();
-    $r=$hotel->fetch(PDO::FETCH_ASSOC);
+ if (isset($_POST['create'])) {
 
-    $name=$r['name'];
-    $phone=$r['phone'];
-    $email=$r['email'];
-    $shift=$r['shift'];
-    
-    
-
-    //update code
- if (isset($_POST['update'])) {
-     $name=$_POST['name'];
+    $name=$_POST['name'];
     $phone=$_POST['phone'];
     $email=$_POST['email'];
     $shiff=$_POST['shift'];
     
 
 
-    $hotel=$db->prepare('update staff set name=:name,email=:email,phone=:phone,shift=:shift where id=:id
-    ');
-    $hotel->bindValue(':id',$id);
+    $hotel=$db->prepare('insert into staff(name,email,phone,shift)
+    values(:name,:email,:phone,:shift)');
+
     $hotel->bindParam(':name',$name);
     $hotel->bindParam(':email',$email);
     $hotel->bindParam(':phone',$phone);
     $hotel->bindParam(':shift',$shiff);
     
     $hotel->execute();
-    header('location:staff.php');
+    header('location:./staff.php');
  }
 
 ?>
@@ -62,36 +47,36 @@
   </head>
   <body>
     
-  <div class="container">
-    <h1 class="" style="margin-bottom: 40px;">Edit Staff Info</h1>
+    <div class="container">
+    <h1 class="" style="margin-bottom: 40px;">Register New Staff</h1>
     <form method="post">
       <div class="row">
         <div class="col-6">
   <div class="form-group">
     <label  class="form-label">Full name</label>
-    <input type="text" class="form-control ii" name="name" value="<?= $name?>" required>
+    <input type="text" class="form-control ii" name="name" required>
   </div>
   <div class="form-group">
     <label class="form-label">Email</label>
-    <input type="text" class="form-control" name="email" value="<?= $email?>" required>
+    <input type="text" class="form-control" name="email" required>
   </div>
         </div>
   
   <div class="col-6">
   <div class="form-group">
     <label class="form-label">Phone</label>
-    <input type="text" class="form-control" name="phone" value="<?= $phone?>" required>
+    <input type="text" class="form-control" name="phone" required>
   </div>
   
   <div class="form-group">
     <label class="form-label">Shift Timing</label>
-    <input type="text" class="form-control" name="shift" value="<?=$shift?>" required>
+    <input type="text" class="form-control" name="shift" required>
     </div>
   </div>
   </div>
   
   <div>   <button type="submit" class="btn btn-primary col-4 offset-3" 
-  name="update" style="width: 300px;margin-top:20px">Edit Staff Info</button>
+  name="create" style="width: 300px;margin-top:20px">Register New Staff</button>
 </div>
   </div>
 </form>

@@ -1,6 +1,6 @@
 <?php
 
-require ('conn.php');
+require ('../conn.php');
 
 $id=$_POST['id']??null;
 
@@ -13,7 +13,7 @@ if (!$id) {
 $hotel=$db->prepare('delete from person where id=:id');
 $hotel->bindValue(':id',$id);
 $hotel->execute();
-header('location:customers.php');
+header('location:./customers.php');
 
 
 

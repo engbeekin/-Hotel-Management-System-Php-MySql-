@@ -1,6 +1,5 @@
 
 <?php
-
 session_start();
 ?>
 <html>
@@ -14,17 +13,16 @@ session_start();
         font-family: 'Times New Roman', Times, serif;
         
     }
-    nav{
-        padding: 30px;
-    }
+    
 </style>
+
 </head>
 
 <body>
 
 
     <header>
-        <nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar  navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" href="home.php">Hotel Managment System</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,13 +32,17 @@ session_start();
 
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="home.php">Home</a>
+                        
+                        <a class="nav-link text-dark " href="home.php">Home</a>
+                       
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark " href="customers.php">Customers</a>
+                        
+                            <a class="nav-link text-dark " href="customer/customers.php">Customers</a>
                         </li>
                         <li class="nav-item   ">
-                            <a class="nav-link text-dark" href="staff.php">Staff</a>
+                        
+                            <a name="aa"class="nav-link text-dark" href="./staff/staff.php" >Staff</a>
                         </li>
                         
                         <li class="nav-item">

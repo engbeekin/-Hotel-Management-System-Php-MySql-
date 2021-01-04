@@ -1,14 +1,14 @@
 <?php
-   //require('header.php');
-    require('C:\xampp\htdocs\hotel\conn.php');
-    require('C:\xampp\htdocs\hotel\header.php');
+   
+    require('..\conn.php');
+    require('..\header.php');
 
     $stmt=$db->prepare('select * from staff');
     $stmt->execute();
     $student=$stmt->fetchAll(PDO::FETCH_ASSOC);
-session_start();
+@session_start();
 if ($_SESSION['username'] !='admin') {
-  header('location:login.php');
+  header('location:../login.php');
  }
 
 

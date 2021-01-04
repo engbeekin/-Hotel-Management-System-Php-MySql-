@@ -1,6 +1,6 @@
 <?php
- require('conn.php');
- require('header.php');
+ require('../conn.php');
+ require('../header.php');
 
  // get the custemer id
      $id=$_GET['id']?? null;
@@ -39,7 +39,7 @@
     $hotel->bindParam(':price',$price);
     $hotel->bindParam(':balance',$balance);
     $hotel->execute();
-    header('location:customers.php');
+    header('location:./customers.php');
  }
 
 ?>

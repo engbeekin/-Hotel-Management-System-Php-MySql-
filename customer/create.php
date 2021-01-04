@@ -1,6 +1,6 @@
 <?php
- require('conn.php');
- require('header.php');
+ require('../conn.php');
+ require('../header.php');
 
  if (isset($_POST['create'])) {
     $name=$_POST['name'];
@@ -21,7 +21,7 @@
     $hotel->bindParam(':price',$price);
     $hotel->bindParam(':balance',$balance);
     $hotel->execute();
-    header('location:customers.php');
+    header('location:./customers.php');
  }
 
 ?>

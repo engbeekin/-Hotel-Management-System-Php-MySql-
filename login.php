@@ -15,10 +15,8 @@ if (isset($_POST['login'])) {
   session_regenerate_id();
   @$_SESSION['username']=$r['username'];
   if ($r !=="" && $_SESSION['username']=="admin") {
-    header('location:customers.php');
+    header('location:./customer/customers.php');
     
-  }elseif($r !=="" && $_SESSION['username']=="manager"){
-    header('location:mcustomer.php');
   }
   else{
     $msg='username or password Incorrect';
